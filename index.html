@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Join Speech & Debate and build leadership, confidence, and championship-level communication skills.">
+<meta name="keywords" content="Speech and Debate, Debate Team, Public Speaking, Leadership, High School Activities">
+<meta name="author" content="Speech & Debate Team">
+<meta name="theme-color" content="#000000">
+
+<title>Speech & Debate</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+button {
+  font-family: Poppins;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== SECTION BASE ===== */
+.section {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+/* ===== FIRST PAGE ===== */
+#bg {
+  background-image: url("groupphoto.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 5vh;
+  font-weight: bold;
+  text-shadow: 0 2vh 2vh black;
+  flex-direction: column;
+}
+
+/* tighter button spacing */
+.buttonstyle {
+  width: 20vh;
+  height: 5vh;
+  color: white;
+  font-size: 2.5vh;
+  border-radius: 2vh;
+  background-color: black;
+  border: none;
+  margin: 0.5vh;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buttonstyle:hover {
+  background-color: white;
+  color: black;
+}
+
+/* ===== SECOND PAGE ===== */
+#nextpage {
+  background-color: #111;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5vw;
+  box-sizing: border-box;
+}
+
+/* centered text but confined so it cannot overlap images */
+.centercontent {
+  position: absolute;
+  left: 8vw;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+  font-size: 2.5vh;
+  max-width: 55%;
+}
+
+/* image column */
+.imagecolumn {
+  position: absolute;
+  right: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
+/* square images */
+.square {
+  width: 18vh;
+  height: 18vh;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: 0.8s ease;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.square.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- FIRST PAGE -->
+<div class="section" id="bg">
+  Join Speech And Debate!
+  <br><br>
+  <button class="buttonstyle" onclick="goToSignup()">Let's Do It!</button>
+  <button class="buttonstyle" onclick="scrollToNext()">Uhhh...Why?</button>
+</div>
+
+<!-- SECOND PAGE -->
+<div class="section" id="nextpage">
+
+  <span class="centercontent">
+    This is where you explain why Speech & Debate is awesome.<br><br>
+    Leadership. Confidence. Championships.<br><br>
+    Replace this text later with your real pitch.
+  </span>
+
+  <div class="imagecolumn">
+    <div style="background-image: url('square1.png')" class="square"></div>
+    <div style="background-image: url('square2.png')" class="square"></div>
+    <div style="background-image: url('square3.png')" class="square"></div>
+  </div>
+
+</div>
+
+<script>
+
+/* Go to signup page */
+function goToSignup() {
+  window.location.href = "sign-up.html";
+}
+
+/* Scroll to next section */
+function scrollToNext() {
+  document.getElementById("nextpage").scrollIntoView();
+}
+
+/* Scroll animation for squares */
+const squares = document.querySelectorAll(".square");
+
+window.addEventListener("scroll", () => {
+  squares.forEach(square => {
+    const rect = square.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 50) {
+      square.classList.add("visible");
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
